@@ -12,6 +12,18 @@
     
 </head>
 <body>
+    <header>
+        <div id="age-check-modal" class="modal">
+            <div class="modal-content">
+                <h1>Age Verification</h1>
+                <p>By clicking enter, I certify that I am 18 years old or older.</p>
+                <div>
+                    <button class="modal-button" onclick="accessSite()">Enter</button>
+                    <button class="modal-button" onclick="leaveSite()">Exit</button>
+                </div>
+            </div>
+        </div>
+    </header>
     
     <img class="rainbowcat-left " src="https://media1.giphy.com/media/XfxvBgWGIlk6STgMEn/source.gif" alt=""> 
     <img class="rainbowcat-left-bottom " src="https://media1.giphy.com/media/XfxvBgWGIlk6STgMEn/source.gif" alt="">
@@ -19,7 +31,8 @@
     <img class="rainbowcat-right-bottom " src="https://media1.giphy.com/media/XfxvBgWGIlk6STgMEn/source.gif" alt="">
     <img class="rainbowcat-top roll-in-top" src="https://media1.giphy.com/media/XfxvBgWGIlk6STgMEn/source.gif" alt="">
     <img class="rainbowcat-bottom roll-in-bottom" src="https://media1.giphy.com/media/XfxvBgWGIlk6STgMEn/source.gif" alt="">
-    <div class="container">
+
+    <div class="blur" class="container">
         <div>
             <img  class= "userPhoto " src="./images/yuki.png" alt="pfp">
         </div>
@@ -34,12 +47,10 @@
             </a>
             <a class="link" href="https://twitter.com/YukiSnowmew">
                 <div class="icons8-twitter"></div>
-                <!-- Twitter @YukiSnowmew -->
                 Twitter
             </a>
             <a class="link" href="https://twitter.com/YukiSnowmewAD" target="_blank" >
                 <div class="icons8-twitter"></div>
-                <!-- Twitter @YukiSnowmewAD -->
                 Twitter AD
             </a>
             <a class="link" href="https://twitch.tv/YukiSnowmew">
@@ -53,10 +64,8 @@
         </div>
     </div>
 
-    <footer>
-        <div>
-            Diaper icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-        </div>
+    <footer class="blur">
+        <div>Diaper icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
     </footer>
 
     <script>
@@ -67,7 +76,24 @@
         let age = Math.abs(year - 1970);
 
         let age_element = document.getElementById("age");
-        age_element.innerHTML += age + " months old"
+        age_element.innerHTML += age + " years old"
+    </script>
+
+    <script>
+        function accessSite() {
+            let blurred = [...document.getElementsByClassName("blur")];
+
+            blurred.forEach(element => {
+                element.classList.remove("blur");
+            })
+
+            let modal = document.getElementById("age-check-modal");
+            modal.style.display = "none";
+        }
+
+        function leaveSite() {
+            window.location.replace('http://duckduckgo.com');
+        }
     </script>
     
 </body>
